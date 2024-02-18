@@ -8,5 +8,15 @@
     "name": "spring.cloud.stream.bindings.uppercase-in-0.destination",
     "type": "java.lang.String",
     "description": "A description for 'spring.cloud.stream.bindings.uppercase-in-0.destination'"
+  },
+  {
+    "name": "spring.cloud.stream.bindings.lowercase-in-0.destination",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.cloud.stream.bindings.lowercase-in-0.destination'"
+  },
+  {
+    "name": "spring.cloud.stream.bindings.lowercase-out-0.destination",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.cloud.stream.bindings.lowercase-out-0.destination'"
   }
 ]}

@@ -16,4 +16,9 @@ public class LoggingConsumerApplication {
 	protected Function<String, String> uppercase() {
 	    return value -> value.toUpperCase();
 	}
+	
+	@Bean
+	protected Function<String, String> lowercase() {
+	    return value -> value.toLowerCase();
+	}
 }
