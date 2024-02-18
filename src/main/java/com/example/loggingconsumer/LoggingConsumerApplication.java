@@ -1,6 +1,7 @@
 package com.example.loggingconsumer;
-import java.util.function.Consumer;
 
+import java.util.Date;
+import java.util.function.Supplier;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -13,33 +14,8 @@ public class LoggingConsumerApplication {
 	}
 
 	@Bean
-	Consumer<Person> log1() {
-		return person -> {
-			System.out.println("Received: " + person);
-		};
-	}
-
-	@Bean
-	Consumer<Person> log2() {
-		return person -> {
-			System.out.println("Received: " + person);
-		};
-	}
-
-	
-	public static class Person {
-		private String name;
-
-		public String getName() {
-			return name;
-		}
-
-		public void setName(String name) {
-			this.name = name;
-		}
-
-		public String toString() {
-			return this.name;
-		}
+	Supplier<Date> date() {
+		System.out.println("Running Supplier");
+		return () -> new Date(12345L);
 	}
 }
