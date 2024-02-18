@@ -1,19 +1,29 @@
 spring:
   cloud:
-    function.definition: uppercase
+    function:
+      definition: uppercase
+      ineligible-definitions:
+      - lowercase
     stream:
-      function.bindings.uppercase-in-0: input #Renamed
-      function.bindings.uppercase-out-0: output
+#      defaultBinder: rabbit
+      function:
+        bindings:
+          uppercase-in-0: input #Renamed
+          uppercase-out-0: output
       bindings:
         input: #Used here
           destination: input-topic-name
+          binder: kafka #the binder for input and output binding is specified specifically, if binders are same for
+                        #both input and output, then it is better to define spring.cloud.stream.defaultBinder: rabbit
         output:
           destination: output-topic-name
+          binder: kafka
           
 #Renamed "uppercase-in-0" as "input" and "uppercase-out-0" as "output"
 
 
 #Destination Binders: Components responsible to provide integration with the external messaging systems.
+#          eg. Kafka and RabbitMQ
 #
 #Bindings: Bridge between the external messaging systems and application provided Producers and Consumers
 #          of messages (created by the Destination Binders).
@@ -21,3 +31,12 @@ spring:
 #
 #Message: The canonical data structure used by producers and consumers to communicate with Destination
 #         Binders (and thus other applications via external messaging systems).
+
+
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bindings        

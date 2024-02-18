@@ -12,7 +12,7 @@ import org.springframework.messaging.support.GenericMessage;
 
 @SpringBootTest(classes =  LoggingConsumerApplication.class)
 @Import({TestChannelBinderConfiguration.class})
-class BootTestStreamApplicationTests {
+public class LoggingConsumerApplicationTests {
 
 	@Autowired
 	private InputDestination input;
