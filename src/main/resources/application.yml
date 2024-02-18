@@ -1,15 +1,16 @@
 spring:
   cloud:
     function:
-      definition: uppercase
-      ineligible-definitions:
-      - lowercase
+      definition: uppercase;lowercase
     stream:
 #      defaultBinder: rabbit
       function:
         bindings:
           uppercase-in-0: input #Renamed
           uppercase-out-0: output
+          lowercase-in-0: input-lowercase
+          lowercase-out-0: output-lowercase
+          
       bindings:
         input: #Used here
           destination: input-topic-name
@@ -19,6 +20,13 @@ spring:
           destination: output-topic-name
           binder: kafka
           
+        input-lowercase:
+          destination: input-lowercase-topic
+          binder: kafka
+          
+        output-lowercase:
+          destination: output-lowercase-topic
+          binder: kafka
 #Renamed "uppercase-in-0" as "input" and "uppercase-out-0" as "output"
 
 
