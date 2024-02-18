@@ -1,0 +1,5 @@
+spring:
+  cloud:
+    function.definition: uppercase
+    stream.bindings.uppercase-in-0.destination: input-topic-name
+    stream.bindings.uppercase-out-0.destination: output-topic-name
