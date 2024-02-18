@@ -1,5 +1,23 @@
 spring:
   cloud:
-    function.definition: uppercase|lowercase|uppercase
-    stream.bindings.uppercaselowercaseuppercase-in-0.destination: input-topic-name
-    stream.bindings.uppercaselowercaseuppercase-out-0.destination: output-topic-name
+    function.definition: uppercase
+    stream:
+      function.bindings.uppercase-in-0: input #Renamed
+      function.bindings.uppercase-out-0: output
+      bindings:
+        input: #Used here
+          destination: input-topic-name
+        output:
+          destination: output-topic-name
+          
+#Renamed "uppercase-in-0" as "input" and "uppercase-out-0" as "output"
+
+
+#Destination Binders: Components responsible to provide integration with the external messaging systems.
+#
+#Bindings: Bridge between the external messaging systems and application provided Producers and Consumers
+#          of messages (created by the Destination Binders).
+#          eg. .uppercase-in-0 is one binding.
+#
+#Message: The canonical data structure used by producers and consumers to communicate with Destination
+#         Binders (and thus other applications via external messaging systems).
